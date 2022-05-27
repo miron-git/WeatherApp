@@ -4,17 +4,24 @@
 <div class="container px-4 py-5" id="featured-3">
     <h1 class="pb-2 border-bottom">
       Погода:
-      {{ info.city }}
-      {{ info.temp }}<sup>t<sup>o</sup></sup>  <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Картинка"></h1>
+      {{ cheb.city }}
+      {{ cheb.temp }}<sup>t<sup>o</sup></sup>  <img src="http://openweathermap.org/img/w/{{ cheb.icon }}.png" alt="Картинка"></h1>
+      <div class="alignright">
+        {% for item in city_weather %}
+          {{ item.city }}
+          {{ info.temp }}<sup>t<sup>o</sup></sup>  <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Картинка"></h1>
+        {% endfor %}
+      </div>
 </div>
 <div class="container">
   <div class="row">
     <div class="col7 offset3">
-    <form action="">
-      <label for="city">Город</label>
-      <input type="text" style="width: 200px; height: 30px;" id="city" class="form-control" name="city" placeholder="Введите город">
-      <input class="mt-2 btn btn-danger" value="Выбрать" type="submit">
-    </form>
+      <form method="POST" class="post-form">{% csrf_token %}
+        <label for="city">Город</label>
+        {{form}}
+        </select></p>
+        <input class="mt-2 btn btn-danger" value="Выбрать" type="submit">
+    </form> 
     </div>
     </div>
   </div>
